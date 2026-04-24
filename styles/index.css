@@ -1,0 +1,19 @@
+/* ─────────────────────────────────────────────────────────
+   Global reset & base — all component styles live in
+   src/styles/theme.js as a JS string injected by App.jsx
+   ───────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Syne', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
