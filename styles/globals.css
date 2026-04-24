@@ -1,10 +1,79 @@
-/* 
+/*
   GLOBAL CSS - Next.js Global Styles
   Edit this file to change global styles, animations, responsive
   breakpoints, light-mode overrides, and component class styles.
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
+/* Fonts are now loaded via next/font/google in _app.tsx */
+
+/* ProjectDetail More Projects Section */
+.pd-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@media (max-width: 767px) {
+  .pd-header {
+    align-items: flex-start;
+  }
+}
+
+.pd-dots-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .pd-dots-container {
+    margin-top: 12px;
+  }
+}
+
+.pd-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all .25s;
+  padding: 0;
+  opacity: 0.35;
+}
+
+.pd-dot.active {
+  width: 22px;
+  opacity: 1;
+}
+
+.pd-nav-container {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+  justify-content: flex-end;
+}
+
+.pd-grid {
+  display: grid;
+  gap: 18px;
+  animation: slideLeft .3s ease both;
+}
+
+@media (max-width: 767px) {
+  .pd-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .pd-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 ::selection{background:#FF3CAC;color:#0A0A0A;}

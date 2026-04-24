@@ -39,7 +39,7 @@ function ProjectDetail({ project, goBack, go, openProject }) {
     { 
       label: "LinkedIn", 
       url: DATA.contact.linkedin, 
-      icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+      icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
     },
     { 
       label: "Behance", 
@@ -128,44 +128,62 @@ function ProjectDetail({ project, goBack, go, openProject }) {
       <section style={{ padding: "20px 0px" }}>
         <div className="container container-content">
           <div className="ac">
-            <div className="ac" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "24px", flexWrap: "wrap", gap: "16px" }}>
+            <div className="ac" style={{ display: "flex", justifyContent: "space-between", alignItems: isMobile ? "flex-start" : "flex-end", flexDirection: isMobile ? "column" : "row", marginBottom: "44px", flexWrap: "wrap", gap: "16px" }}>
               <div>
                 <span className="stag">More Projects</span>
                 <h3 className="sh1" style={{ fontSize: "clamp(1.3rem,3vw,1.9rem)" }}>Keep <span className="grad">exploring.</span></h3>
               </div>
-              {/* Pagination dots */}
-              <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
-                {Array.from({ length: explorePages }).map((_, i) => (
-                  <button key={i} onClick={() => setExplorePage(i)} style={{ width: i === explorePage ? "22px" : "8px", height: "8px", borderRadius: "4px", border: "none", background: i === explorePage ? "#FF3CAC" : T.muted, cursor: "pointer", transition: "all .25s", padding: 0, opacity: i === explorePage ? 1 : 0.35 }} />
-                ))}
-              </div>
-            </div>
-
-            <div style={{ position: "relative", padding: "0 0px" }}>
-            <div key={explorePage} className="ac" style={{ 
-              display: "grid", 
-              gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", 
-              gap: "18px", 
-              animation: "slideLeft .3s ease both"
-            }}>
-              {others.slice(explorePage * projectsPerPage, explorePage * projectsPerPage + projectsPerPage).map(op => (
-                <PCard key={op.id} p={op} onClick={openProject} />
-              ))}
-              {others.slice(explorePage * projectsPerPage, explorePage * projectsPerPage + projectsPerPage).length === 1 && !isMobile && (
-                <div style={{ background: "rgba(255,60,172,.06)", border: "1px solid rgba(255,60,172,.18)", padding: "28px", display: "flex", flexDirection: "column", justifyContent: "center", gap: "12px", borderRadius: "8px" }}>
-                  <div style={{ fontSize: "28px" }}>🚀</div>
-                  <h3 style={{ fontFamily: "'Syne',sans-serif", fontSize: "16px", fontWeight: 800, color: T.text }}>More projects coming soon</h3>
-                  <p className="bt" style={{ fontSize: "13px" }}>Check back for more amazing case studies and design work.</p>
+              {/* Desktop: Navigation arrows, Mobile: Dots */}
+              {isMobile ? (
+                <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+                  {Array.from({ length: explorePages }).map((_, i) => (
+                    <button key={i} onClick={() => setExplorePage(i)} style={{ width: i === explorePage ? "22px" : "8px", height: "8px", borderRadius: "4px", border: "none", background: i === explorePage ? "#FF3CAC" : T.muted, cursor: "pointer", transition: "all .25s", padding: 0, opacity: i === explorePage ? 1 : 0.35 }} />
+                  ))}
+                </div>
+              ) : (
+                <div style={{ display: "flex", gap: "8px" }}>
+                  <button onClick={() => setExplorePage((explorePage - 1 + explorePages) % explorePages)} className="bo" style={{ padding: "9px 14px", fontSize: "14px" }}>←</button>
+                  <button onClick={() => setExplorePage((explorePage + 1) % explorePages)} className="bo" style={{ padding: "9px 14px", fontSize: "14px" }}>→</button>
                 </div>
               )}
             </div>
 
-            {/* Navigation arrows at bottom right - inside same container */}
-            <div style={{ display: "flex", gap: "8px", marginTop: "20px", justifyContent: "flex-end" }}>
-              <button onClick={() => setExplorePage((explorePage - 1 + explorePages) % explorePages)} className="bo" style={{ padding: "9px 14px", fontSize: "14px" }}>←</button>
-              <button onClick={() => setExplorePage((explorePage + 1) % explorePages)} className="bo" style={{ padding: "9px 14px", fontSize: "14px" }}>→</button>
+            <div style={{ position: "relative", padding: "0 0px" }}>
+              <div key={explorePage} className="ac" style={{
+                display: "grid",
+                gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+                gap: "18px",
+                paddingBottom: "18px",
+                animation: "slideLeft .3s ease both"
+              }}>
+                {others.slice(explorePage * projectsPerPage, explorePage * projectsPerPage + projectsPerPage).map(op => (
+                  <PCard key={op.id} p={op} onClick={openProject} />
+                ))}
+                {others.slice(explorePage * projectsPerPage, explorePage * projectsPerPage + projectsPerPage).length === 1 && !isMobile && (
+                  <div style={{ background: "rgba(255,60,172,.06)", border: "1px solid rgba(255,60,172,.18)", padding: "28px", display: "flex", flexDirection: "column", justifyContent: "center", gap: "12px", borderRadius: "8px" }}>
+                    <div style={{ fontSize: "28px" }}>🚀</div>
+                    <h3 style={{ fontFamily: "'Syne',sans-serif", fontSize: "16px", fontWeight: 800, color: T.text }}>More projects coming soon</h3>
+                    <p className="bt" style={{ fontSize: "13px" }}>Check back for more amazing case studies and design work.</p>
+                  </div>
+                )}
+              </div>
+
+              {/* Navigation arrows at bottom right for mobile, Dots at bottom right for desktop */}
+              <div style={{ display: "flex", gap: "8px", marginTop: "20px", justifyContent: "flex-end" }}>
+                {isMobile ? (
+                  <>
+                    <button onClick={() => setExplorePage((explorePage - 1 + explorePages) % explorePages)} className="bo" style={{ padding: "9px 14px", fontSize: "14px" }}>←</button>
+                    <button onClick={() => setExplorePage((explorePage + 1) % explorePages)} className="bo" style={{ padding: "9px 14px", fontSize: "14px" }}>→</button>
+                  </>
+                ) : (
+                  <>
+                    {Array.from({ length: explorePages }).map((_, i) => (
+                      <button key={i} onClick={() => setExplorePage(i)} style={{ width: i === explorePage ? "22px" : "8px", height: "8px", borderRadius: "4px", border: "none", background: i === explorePage ? "#FF3CAC" : T.muted, cursor: "pointer", transition: "all .25s", padding: 0, opacity: i === explorePage ? 1 : 0.35 }} />
+                    ))}
+                  </>
+                )}
+              </div>
             </div>
-          </div>
           </div>
         </div>
       </section>

@@ -28,9 +28,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
     // Hide after 3 seconds
     const hideTimer = setTimeout(() => {
       setIsVisible(false);
-      setTimeout(() => {
-        onComplete();
-      }, 300);
+      onComplete();
     }, 3000);
 
     return () => {

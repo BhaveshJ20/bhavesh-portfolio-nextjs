@@ -41,14 +41,52 @@ const useAnim = (ref: React.RefObject<HTMLElement>) => {
   }, [ref]);
 };
 
-function Home() {
+function Home({ loadingComplete = false }: { loadingComplete?: boolean }) {
   const { dark, T } = useTheme();
   const router = useRouter();
-  const heroRef = useRef<HTMLDivElement>(null); 
-  useAnim(heroRef);
-  const aboutRef = useRef<HTMLDivElement>(null); 
+  const heroRef = useRef<HTMLDivElement>(null);
+  const heroRow1Ref = useRef<HTMLDivElement>(null);
+  const heroRow2Ref = useRef<HTMLDivElement>(null);
+  const heroRow3Ref = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const standForRef = useRef<HTMLDivElement>(null);
+
+  // Trigger hero row animations in sequence after loading completes
+  React.useEffect(() => {
+    if (loadingComplete) {
+      const delays = [500, 900, 1300]; // Staggered delays for rows 1, 2, 3 (much slower)
+      const refs = [heroRow1Ref, heroRow2Ref, heroRow3Ref];
+
+      refs.forEach((ref, index) => {
+        setTimeout(() => {
+          if (ref.current) {
+            ref.current.classList.add('vis');
+          }
+        }, delays[index]);
+      });
+    } else {
+      // Fallback to IntersectionObserver if no loading screen
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('vis');
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      [heroRow1Ref, heroRow2Ref, heroRow3Ref].forEach(ref => {
+        if (ref.current) observer.observe(ref.current);
+      });
+
+      return () => observer.disconnect();
+    }
+  }, [loadingComplete]);
+
+  // Keep IntersectionObserver for other sections
   useAnim(aboutRef);
-  const standForRef = useRef<HTMLDivElement>(null); 
   useAnim(standForRef);
 
   const go = (page: string) => {
@@ -64,9 +102,9 @@ function Home() {
       {/* HERO */}
       <section className="section-lg" style={{ minHeight: "calc(100vh + 62px)", display: "flex", alignItems: "center", position: "relative", paddingTop: "100px", paddingBottom: "100px" }}>
         <div className="container container-content" style={{ position: "relative", zIndex: 1 }}>
-          <div ref={heroRef} className="heroflex ap hero-container" style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+          <div className="heroflex ap hero-container" style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
             {/* ROW 1: BJ and available text/name in same row */}
-            <div className="hero-row-1" style={{ display: "flex", alignItems: "center", gap: "32px", paddingLeft: "18px", flexDirection: "row" }}>
+            <div ref={heroRow1Ref} className="hero-row-1 ap" style={{ display: "flex", alignItems: "center", gap: "32px", paddingLeft: "18px", flexDirection: "row" }}>
               {/* BJ */}
               <div className="ac" style={{ display: "flex", justifyContent: "flex-start" }}>
                 <ProfilePhoto size={200} />
@@ -83,13 +121,13 @@ function Home() {
               </div>
             </div>
             {/* ROW 2: Role and tagline */}
-            <div className="hero-row-2" style={{ textAlign: "left" }}>
+            <div ref={heroRow2Ref} className="hero-row-2 ap" style={{ textAlign: "left" }}>
               <p className="ac bt hero-tagline">Turning complex business problems into simple, actionable <span className="highlight">digital</span> <span className="highlight-blue">experiences</span>.
 
 I blend creativity, strategy, and <span className="highlight-blue">product thinking</span> to transform complexity into <span className="highlight">clarity</span>—helping teams ship faster while <span className="highlight">delivering</span> <span className="highlight-blue">measurable</span> product <span className="highlight">outcomes</span>.</p>
             </div>
             {/* ROW 3: Buttons and stats */}
-            <div className="hero-row-3" style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+            <div ref={heroRow3Ref} className="hero-row-3 ap" style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
               <div className="ac statrow" style={{ display: "flex", gap: "28px", flexWrap: "wrap", justifyContent: "center" }}>
                 {DATA.stats.map(([n, l], i) => (
                   <div key={i} className="stat ac" style={{ display: "flex", flexDirection: "column" }}>
@@ -243,7 +281,7 @@ I blend creativity, strategy, and <span className="highlight-blue">product think
             </div>
             <div className="video_btn" style={{ display: "flex", gap: "12px", marginTop: "40px", justifyContent: "center" }}>
               <button className="bp" onClick={() => go("work")}>View Case Studies →</button>
-              <a href={DATA.contact.linkedin} target="_blank" rel="noreferrer" style={{ textDecoration: "none" }}><button className="bo"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg> Connect on LinkedIn ↗</button></a>
+              <a href={DATA.contact.linkedin} target="_blank" rel="noreferrer" style={{ textDecoration: "none" }}><button className="bo"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg> Connect on LinkedIn ↗</button></a>
             </div>
           </div>
         </div>
