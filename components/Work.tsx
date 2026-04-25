@@ -46,7 +46,7 @@ function Work() {
   };
 
   return (
-    <section className="section-lg" style={{ paddingBottom: "80px" }}>
+    <section className="section-lg page-first-section">
     <div className="container container-content">
       <div ref={ref} className="ap" >
         <span className="stag ac">Selected Work</span>

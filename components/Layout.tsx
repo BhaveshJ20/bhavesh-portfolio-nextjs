@@ -10,8 +10,8 @@ import GlobalModal from "./GlobalModal";
 export default function Layout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
-  const [dark, setDark] = useState(true); // default dark mode
-  const [galleryModal, setGalleryModal] = useState(null); // Global gallery modal state
+  const [dark, setDark] = useState(true);
+  const [galleryModal, setGalleryModal] = useState(null);
   const [menu, setMenu] = useState(false);
   const [showWhatsAppTooltip, setShowWhatsAppTooltip] = useState(false);
 
@@ -111,14 +111,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <ThemeCtx.Provider value={{ dark, setDark: () => setDark(!dark), T, galleryModal, setGalleryModal: () => setGalleryModal(null) }}>
-      <div className={dark ? "" : "lm"} style={{ fontFamily: "'Syne',sans-serif", background: T.bg, color: T.text, minHeight: "100vh", overflowX: "hidden", transition: "background .35s, color .35s" }}>
+      {!mounted ? (
+        <div style={{ background: "#0A0A0A", minHeight: "100vh" }}></div>
+      ) : (
+        <div className={dark ? "" : "lm"} style={{ fontFamily: "'Syne',sans-serif", background: T.bg, color: T.text, minHeight: "100vh", overflowX: "hidden" }}>
         
         {/* Ambient orbs */}
         <div className="orb" style={{ width: "420px", height: "420px", background: `radial-gradient(circle,${T.orb1},transparent 70%)`, top: "-6%", right: "-4%", animationDuration: "11s" }} />
         <div className="orb" style={{ width: "320px", height: "320px", background: `radial-gradient(circle,${T.orb2},transparent 70%)`, bottom: "5%", left: "-4%", animationDuration: "15s", animationDelay: "-5s" }} />
 
         {/* Navigation */}
-        <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50, borderBottom: `1px solid ${T.navBorder}`, backdropFilter: "blur(16px)", background: T.nav, transition: "background .35s, border-color .35s" }}>
+        <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50, borderBottom: `1px solid ${T.navBorder}`, backdropFilter: "blur(16px)", background: T.nav }}>
           <div className="container container-content" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "62px" }}>
             <div onClick={() => go("home")} style={{ cursor: "pointer", fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: "16px", letterSpacing: ".02em", color: T.text }}>
               Bhavesh<span style={{ color: "#FF3CAC" }}>.</span>
@@ -481,6 +484,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {/* Global Modal */}
         <GlobalModal galleryModal={galleryModal} setGalleryModal={setGalleryModal} />
       </div>
+      )}
     </ThemeCtx.Provider>
   );
 }

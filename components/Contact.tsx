@@ -47,7 +47,7 @@ function Contact() {
   const borderCol = dark ? "rgba(255,255,255,.1)" : "rgba(0,0,0,.12)";
 
   return (
-    <div className="section-lg" style={{ paddingBottom: "80px" }}>
+    <div className="section-lg page-first-section">
       <div className="container container-content">
         <div ref={ref} className="ap">
           <span className="stag ac">Let's Connect</span>

@@ -43,11 +43,11 @@ function About() {
   useAnim(skillRef);
 
   return (
-    <div style={{ paddingTop: "120px" }}>
-      <div className="container container-content">
-          {/* Hero */}
-          <div ref={heroRef} className="ap" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: "60px", alignItems: "center", marginBottom: "90px" }}>
-            <div>
+    <div>
+      {/* Hero - Full width background */}
+      <div ref={heroRef} className="ap page-first-section about-hero-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: "60px", alignItems: "center", marginBottom: "40px", backgroundImage: "url('/images/about_hero.jpg')", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", minHeight: "500px", borderBottom: `1px solid ${T.subtleBorder || (dark ? "rgba(255,255,255,.1)" : "rgba(0,0,0,.1)")}`, }}>
+        <div className="container container-content about-hero-container" style={{ display: "grid", gap: "60px", alignItems: "center", width: "100%"}}>
+          <div style={{paddingTop:'40px', paddingBottom:'40px' }}>
               <span className="stag ac">The Story</span>
               <h1 className="sh1 ac" style={{ marginBottom: "18px" }}>13 years of<br /><span className="grad">connecting dots.</span></h1>
               <p className="bt ac" style={{ fontSize: "1rem", marginBottom: "12px" }}>{DATA.about}</p>
@@ -63,13 +63,17 @@ function About() {
               </div>
             </div>
             {/* Right: animated BJ circle */}
-            <div className="ac" style={{ display: "flex", justifyContent: "center" }}>
-              <ProfilePhoto size={280} showBadges={true} />
+            <div className="ac" style={{display:'flex', alignSelf:'flex-end' }}>
+            {/* <ProfilePhoto size={280} showBadges={true} /> */}
+            <img src="/images/bhavesh_3d.png" alt="Bhavesh Jariwala" style={{ width: "100%", maxWidth: "700px", height: "auto" }} />
             </div>
-          </div>
+        </div>
+      </div>
+
+      <div className="container container-content">
 
           {/* Stand For */}
-          <div style={{ marginBottom: "80px", padding: "60px 0", borderTop: `1px solid ${T.subtleBorder || (dark ? "rgba(255,255,255,.1)" : "rgba(0,0,0,.1)")}`, borderBottom: `1px solid ${T.subtleBorder || (dark ? "rgba(255,255,255,.1)" : "rgba(0,0,0,.1)")}`, transition: "border-color .35s" }}>
+          <div style={{ marginBottom: "80px", padding: "80px 0", borderBottom: `1px solid ${T.subtleBorder || (dark ? "rgba(255,255,255,.1)" : "rgba(0,0,0,.1)")}`, transition: "border-color .35s" }}>
             <StandFor compact={false} />
           </div>
 

@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import DATA from "../data/data";
 import { WA_SVG } from "../data/constants";
 import AnimatedNumber from "./AnimatedNumber";
+import ProfileCard from "./ProfileCard";
 import ProfilePhoto from "./ProfilePhoto";
 import HeroVideoPanel from "./HeroVideoPanel";
 import MarqueeStrip from "./MarqueeStrip";
@@ -73,17 +74,24 @@ function Home({ loadingComplete = false }: { loadingComplete?: boolean }) {
   return (
     <div>
       {/* HERO */}
-      <section className="section-lg" style={{ minHeight: "calc(100vh + 62px)", display: "flex", alignItems: "center", position: "relative", paddingTop: "100px", paddingBottom: "100px" }}>
+      <section className="section-lg page-first-section" style={{ minHeight: "calc(100vh + 62px)", display: "flex", alignItems: "center", position: "relative", backgroundColor: "#050505" }}>
+        {/* Ambient Background Effects */}
+        <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0 }}>
+          <div style={{ position: "absolute", top: "-10%", left: "-10%", width: "500px", height: "500px", background: "rgba(193, 39, 45, 0.1)", borderRadius: "50%", filter: "blur(120px)", animation: "pulse 4s ease-in-out infinite" }}></div>
+          <div style={{ position: "absolute", bottom: "-10%", right: "-10%", width: "500px", height: "500px", background: "rgba(30, 58, 138, 0.1)", borderRadius: "50%", filter: "blur(120px)", animation: "pulse 4s ease-in-out infinite", animationDelay: "700ms" }}></div>
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "url('https://grainy-gradients.vercel.app/noise.svg')", opacity: 0.2 }}></div>
+        </div>
+
         <div className="container container-content" style={{ position: "relative", zIndex: 1 }}>
           <div ref={heroRef} className="heroflex ap hero-container" style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
-            {/* ROW 1: BJ and available text/name in same row */}
-            <div className="ac" style={{ display: "flex", alignItems: "center", gap: "32px", paddingLeft: "18px", flexDirection: "row" }}>
-              {/* BJ */}
-              <div className="ac" style={{ display: "flex", justifyContent: "flex-start" }}>
-                <ProfilePhoto size={200} />
+            {/* ROW 1: Profile Card and available text/name in same row */}
+            <div className="ac animate-slide-up hero-row" style={{ display: "flex", alignItems: "center", gap: "32px" }}>
+              {/* Profile Card */}
+              <div className="ac">
+                <ProfileCard />
               </div>
               {/* Available text and name */}
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", textAlign: "left" }}>
+              {/* <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", textAlign: "left" }}>
                 <div className="ac" style={{ display: "flex", gap: "8px", alignItems: "center", marginBottom: "20px" }}>
                   <span style={{ width: "24px", height: "2px", background: "#FF3CAC" }} />
                   <span style={{ fontFamily: "'Syne',sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: ".24em", textTransform: "uppercase", color: "#FF3CAC" }}>Available for work</span>
@@ -91,17 +99,32 @@ function Home({ loadingComplete = false }: { loadingComplete?: boolean }) {
                 </div>
                 <h1 className="ac hero-name" style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(2rem,4vw,4rem)", fontWeight: 800, lineHeight: .94, letterSpacing: "-.025em", margin: 0, marginBottom: "8px" }}>Bhavesh Jariwala</h1>
                 <p className="ac grad" style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(.95rem,1.7vw,1.35rem)", fontWeight: 700, marginBottom: "14px" }}>{DATA.role}</p>
+              </div> */}
+
+              {/* Mobile name/role row - only visible below 480px */}
+              <div className="ac animate-slide-up hero-mobile-name-row mobile-only">
+                <div className="profile-card-name-block">
+                  <h1 className="profile-card-first-name">Bhavesh</h1>
+                  <h2 className="profile-card-last-name">Jariwala</h2>
+                  <div className="profile-card-role-line">
+                    <span className="profile-card-line-sep"></span>
+                    <p className="profile-card-role-text grad">Sr UI/UX & Product Designer</p>
+                    <span className="profile-card-line-sep profile-card-line-sep-rev"></span>
+                  </div>
+                </div>
+              </div>
+
+               {/* ROW 2: Role and tagline */}
+              <div className="ac animate-slide-up delay-200 hero-tagline-row" style={{ textAlign: "left" }}>
+                <p className="bt hero-tagline">Turning complex business problems into simple, actionable <span className="highlight">digital</span> <span className="highlight-blue">experiences</span>.
+
+  I blend creativity, strategy, and <span className="highlight-blue">product thinking</span> to transform complexity into <span className="highlight">clarity</span>—helping teams ship faster while <span className="highlight">delivering</span> <span className="highlight-blue">measurable</span> product <span className="highlight">outcomes</span>.</p>
               </div>
             </div>
-            {/* ROW 2: Role and tagline */}
-            <div className="ac" style={{ textAlign: "left" }}>
-              <p className="bt hero-tagline">Turning complex business problems into simple, actionable <span className="highlight">digital</span> <span className="highlight-blue">experiences</span>.
-
-I blend creativity, strategy, and <span className="highlight-blue">product thinking</span> to transform complexity into <span className="highlight">clarity</span>—helping teams ship faster while <span className="highlight">delivering</span> <span className="highlight-blue">measurable</span> product <span className="highlight">outcomes</span>.</p>
-            </div>
+           
             {/* ROW 3: Buttons and stats */}
-            <div className="ac" style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
-              <div className="statrow" style={{ display: "flex", gap: "28px", flexWrap: "wrap", justifyContent: "center" }}>
+            <div className="ac animate-slide-up delay-400 hero-stats-row" style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+              <div className="statrow" style={{ display: "flex", gap: "28px", flexWrap: "wrap" }}>
                 {DATA.stats.map(([n, l], i) => (
                   <div key={i} className="stat ac" style={{ display: "flex", flexDirection: "column" }}>
                     <AnimatedNumber value={n} style={{ fontSize: "1.8rem", fontWeight: 800, color: "#FF3CAC", lineHeight: 1 }} />
@@ -109,17 +132,10 @@ I blend creativity, strategy, and <span className="highlight-blue">product think
                   </div>
                 ))}
               </div>
-              <div className="ac ctarow" style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
+              {/* <div className="ac ctarow" style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
                 <button className="bp" onClick={() => go("work")}>View Projects →</button>
-                <a href={DATA.whatsapp} target="_blank" rel="noreferrer" style={{ textDecoration: "none" }}>
-                  <button className="bw">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}>
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                    </svg>
-                    Let's Talk
-                  </button>
-                </a>
-              </div>
+                <button className="bo" onClick={() => go("about")}>About Me</button>
+              </div> */}
             </div>
           </div>
         </div>
@@ -273,7 +289,7 @@ I blend creativity, strategy, and <span className="highlight-blue">product think
               gap: "16px"
             }}>
               <div><span className="stag">Selected Work</span><h2 className="sh1">Projects that<br /><span className="grad">made noise</span></h2></div>
-              <button className="bo" onClick={() => go("work")}>
+              <button className="bo desktop-only" onClick={() => go("work")}>
                 View All Projects
               </button>
             </div>
@@ -290,6 +306,11 @@ I blend creativity, strategy, and <span className="highlight-blue">product think
                   <PCard p={p} onClick={openProject} />
                 </div>
               ))}
+            </div>
+            <div className="ac mobile-only" style={{ marginTop: "32px", textAlign: "center" }}>
+              <button className="bo" onClick={() => go("work")} style={{ justifyContent: "center" }}>
+                View All Projects
+              </button>
             </div>
           </div>
         </div>
@@ -315,19 +336,19 @@ I blend creativity, strategy, and <span className="highlight-blue">product think
 
       {/* CTA BANNER */}
       <section ref={ctaRef} className="section ap">
-        <div className="container container-content" style={{ maxWidth: "1140px" }}>
-          <div className="cta-banner" style={{ background: "linear-gradient(135deg, rgba(255, 60, 172, 0.1), rgba(0, 212, 255, 0.07))", border: "1px solid rgba(255, 60, 172, 0.16)", padding: "56px 56px", display: "flex", justifyContent: "center", alignItems: "center", flexWrap: "wrap", gap: "56px", borderRadius: "12px" }}>
-            <div className="ac" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-              <ProfilePhoto size={200} />
+        <div className="container container-content cta-container">
+          <div className="cta-banner">
+            <div className="ac cta-left">
+              <ProfilePhoto size={260} showBadges={true} />
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px", alignItems: "flex-start", textAlign: "left" }}>
+            <div className="cta-right">
               <div className="ac">
-                <h3 style={{ fontFamily: "Syne, sans-serif", fontSize: "clamp(1.3rem, 2.5vw, 1.9rem)", fontWeight: 800, marginBottom: "8px" }}>Ready to build<br /><span className="grad">something great?</span></h3>
-                <p className="bt" style={{ fontSize: "0.9rem" }}>Open to senior UX/UI and product design roles.</p>
+                <h3 className="cta-heading">Ready to build<br /><span className="grad">something great?</span></h3>
+                <p className="bt cta-subtitle">Open to senior UX/UI and product design roles.</p>
               </div>
-              <div className="ac" style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
+              <div className="ac cta-buttons">
                 <a href={DATA.whatsapp} target="_blank" rel="noreferrer" style={{ textDecoration: "none" }}><button className="bw"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272-.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg> Let's Talk</button></a>
-                <button className="bo">Contact →</button>
+                <button className="bo" onClick={() => go("contact")}>Contact →</button>
               </div>
             </div>
           </div>

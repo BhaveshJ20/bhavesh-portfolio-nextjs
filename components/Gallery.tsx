@@ -56,7 +56,7 @@ function Gallery() {
   const heights = [240, 300, 200, 280, 260, 220, 300, 240, 200, 280, 260, 220];
 
   return (
-    <div className="section-lg" style={{ paddingBottom: "80px" }}>
+    <div className="section-lg page-first-section">
       <div className="container container-content">
         <div ref={ref} className="ap">
           <span className="stag ac">Playground</span>
