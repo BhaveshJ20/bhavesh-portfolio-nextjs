@@ -243,16 +243,18 @@ main:hover::-webkit-scrollbar-thumb {
 @keyframes hbLine3Close{from{transform:none;}to{transform:rotate(-45deg) translate(5px,-5px);}}
 
 /* Scroll entrance */
-.ap .ac{opacity:0;transform:translateY(22px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1);}
+.ap .ac{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1);}
 .ap.vis .ac{opacity:1;transform:translateY(0);}
-.ap.vis .ac:nth-child(1){transition-delay:.05s;}
-.ap.vis .ac:nth-child(2){transition-delay:.13s;}
-.ap.vis .ac:nth-child(3){transition-delay:.21s;}
-.ap.vis .ac:nth-child(4){transition-delay:.29s;}
-.ap.vis .ac:nth-child(5){transition-delay:.37s;}
-.ap.vis .ac:nth-child(6){transition-delay:.45s;}
-.ap.vis .ac:nth-child(7){transition-delay:.53s;}
-.ap.vis .ac:nth-child(8){transition-delay:.61s;}
+.ap.vis .ac:nth-child(1){transition-delay:0ms;}
+.ap.vis .ac:nth-child(2){transition-delay:100ms;}
+.ap.vis .ac:nth-child(3){transition-delay:200ms;}
+.ap.vis .ac:nth-child(4){transition-delay:300ms;}
+.ap.vis .ac:nth-child(5){transition-delay:400ms;}
+.ap.vis .ac:nth-child(6){transition-delay:500ms;}
+.ap.vis .ac:nth-child(7){transition-delay:600ms;}
+.ap.vis .ac:nth-child(8){transition-delay:700ms;}
+.ap.vis .ac:nth-child(9){transition-delay:800ms;}
+.ap.vis .ac:nth-child(10){transition-delay:900ms;}
 
 /* Buttons */
 .bw{background:#25D366;color:#fff;font-family:'Syne',sans-serif;font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;border:none;padding:13px 24px;cursor:pointer;transition:transform .18s,box-shadow .18s,background .2s;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;border-radius:8px;line-height:1;}
@@ -1266,5 +1268,28 @@ body.modal-open {
 @media (max-width: 768px) {
   .pgrid2 {
     grid-template-columns: 1fr;
+  }
+  .cta-banner {
+    padding: 48px 24px !important;
+  }
+  .cta-banner a {
+    display: flex;
+    width: 100%;
+  }
+  .cta-banner .bw, .cta-banner .bo {
+    width: 100%;
+    justify-content: center;
+  }
+  
+}
+@media (max-width: 670px) {
+  .cta-banner h3, .cta-banner p {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-banner {
+    padding: 48px 24px 24px !important;
   }
 }

@@ -45,49 +45,22 @@ function Home({ loadingComplete = false }: { loadingComplete?: boolean }) {
   const { dark, T } = useTheme();
   const router = useRouter();
   const heroRef = useRef<HTMLDivElement>(null);
-  const heroRow1Ref = useRef<HTMLDivElement>(null);
-  const heroRow2Ref = useRef<HTMLDivElement>(null);
-  const heroRow3Ref = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
-  const standForRef = useRef<HTMLDivElement>(null);
+  const selectedWorkRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLDivElement>(null);
+  const testimonialsRef = useRef<HTMLDivElement>(null);
+  const drivesMeRef = useRef<HTMLDivElement>(null);
+  const beyondRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
 
-  // Trigger hero row animations in sequence after loading completes
-  React.useEffect(() => {
-    if (loadingComplete) {
-      const delays = [500, 900, 1300]; // Staggered delays for rows 1, 2, 3 (much slower)
-      const refs = [heroRow1Ref, heroRow2Ref, heroRow3Ref];
-
-      refs.forEach((ref, index) => {
-        setTimeout(() => {
-          if (ref.current) {
-            ref.current.classList.add('vis');
-          }
-        }, delays[index]);
-      });
-    } else {
-      // Fallback to IntersectionObserver if no loading screen
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('vis');
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
-
-      [heroRow1Ref, heroRow2Ref, heroRow3Ref].forEach(ref => {
-        if (ref.current) observer.observe(ref.current);
-      });
-
-      return () => observer.disconnect();
-    }
-  }, [loadingComplete]);
-
-  // Keep IntersectionObserver for other sections
+  useAnim(heroRef);
   useAnim(aboutRef);
-  useAnim(standForRef);
+  useAnim(selectedWorkRef);
+  useAnim(videoRef);
+  useAnim(testimonialsRef);
+  useAnim(drivesMeRef);
+  useAnim(beyondRef);
+  useAnim(ctaRef);
 
   const go = (page: string) => {
     router.push(`/${page}`);
@@ -102,9 +75,9 @@ function Home({ loadingComplete = false }: { loadingComplete?: boolean }) {
       {/* HERO */}
       <section className="section-lg" style={{ minHeight: "calc(100vh + 62px)", display: "flex", alignItems: "center", position: "relative", paddingTop: "100px", paddingBottom: "100px" }}>
         <div className="container container-content" style={{ position: "relative", zIndex: 1 }}>
-          <div className="heroflex ap hero-container" style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+          <div ref={heroRef} className="heroflex ap hero-container" style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
             {/* ROW 1: BJ and available text/name in same row */}
-            <div ref={heroRow1Ref} className="hero-row-1 ap" style={{ display: "flex", alignItems: "center", gap: "32px", paddingLeft: "18px", flexDirection: "row" }}>
+            <div className="ac" style={{ display: "flex", alignItems: "center", gap: "32px", paddingLeft: "18px", flexDirection: "row" }}>
               {/* BJ */}
               <div className="ac" style={{ display: "flex", justifyContent: "flex-start" }}>
                 <ProfilePhoto size={200} />
@@ -121,14 +94,14 @@ function Home({ loadingComplete = false }: { loadingComplete?: boolean }) {
               </div>
             </div>
             {/* ROW 2: Role and tagline */}
-            <div ref={heroRow2Ref} className="hero-row-2 ap" style={{ textAlign: "left" }}>
-              <p className="ac bt hero-tagline">Turning complex business problems into simple, actionable <span className="highlight">digital</span> <span className="highlight-blue">experiences</span>.
+            <div className="ac" style={{ textAlign: "left" }}>
+              <p className="bt hero-tagline">Turning complex business problems into simple, actionable <span className="highlight">digital</span> <span className="highlight-blue">experiences</span>.
 
 I blend creativity, strategy, and <span className="highlight-blue">product thinking</span> to transform complexity into <span className="highlight">clarity</span>—helping teams ship faster while <span className="highlight">delivering</span> <span className="highlight-blue">measurable</span> product <span className="highlight">outcomes</span>.</p>
             </div>
             {/* ROW 3: Buttons and stats */}
-            <div ref={heroRow3Ref} className="hero-row-3 ap" style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
-              <div className="ac statrow" style={{ display: "flex", gap: "28px", flexWrap: "wrap", justifyContent: "center" }}>
+            <div className="ac" style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+              <div className="statrow" style={{ display: "flex", gap: "28px", flexWrap: "wrap", justifyContent: "center" }}>
                 {DATA.stats.map(([n, l], i) => (
                   <div key={i} className="stat ac" style={{ display: "flex", flexDirection: "column" }}>
                     <AnimatedNumber value={n} style={{ fontSize: "1.8rem", fontWeight: 800, color: "#FF3CAC", lineHeight: 1 }} />
@@ -167,14 +140,14 @@ I blend creativity, strategy, and <span className="highlight-blue">product think
       {/* ABOUT + VIDEO */}
       <section className="section">
         <div className="container container-content about-designer" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))", gap: "60px", alignItems: "start" }}>
-          <div ref={aboutRef} className="about-section" style={{ opacity: 1, visibility: "visible" }}>
-            <span className="stag">About Me</span>
-            <h2 className="sh1" style={{ marginBottom: "16px" }}>The person<br /><span className="grad">behind the work</span></h2>
-            <p className="bt" style={{ fontSize: "1rem", marginBottom: "24px", maxWidth: "420px" }}>{DATA.about}</p>
-            <div style={{ marginBottom: "16px" }}><button className="bo" onClick={() => window.open("https://drive.google.com/file/d/1skqUXE_aME07fNGLv689RMfUoSJpi7v0/view", "_blank")}>Download Resume</button></div>
+          <div ref={aboutRef} className="ap about-section">
+            <span className="ac stag">About Me</span>
+            <h2 className="ac sh1" style={{ marginBottom: "16px" }}>The person<br /><span className="grad">behind the work</span></h2>
+            <p className="ac bt" style={{ fontSize: "1rem", marginBottom: "24px", maxWidth: "420px" }}>{DATA.about}</p>
+            <div className="ac" style={{ marginBottom: "16px" }}><button className="bo" onClick={() => window.open("https://drive.google.com/file/d/1skqUXE_aME07fNGLv689RMfUoSJpi7v0/view", "_blank")}>Download Resume</button></div>
             {/* Social Icons */}
-            <span className="stag">Follow me on</span>
-            <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
+            <span className="ac stag">Follow me on</span>
+            <div className="ac" style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
               {[
                 { 
                   icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>,
@@ -237,10 +210,10 @@ I blend creativity, strategy, and <span className="highlight-blue">product think
               ))}
             </div>
           </div>
-          <div className="meet-designer-section" style={{ position: "relative", zIndex: 1 }}>
-            <p className="stag" style={{textAlign:"center", display:"block"}}>Meet the Designer</p>
-            <p className="bt" style={{ fontSize: ".9rem", marginBottom: "24px", textAlign: "center" }}>See how curiosity evolved into a scalable UX/UI career.</p>
-            <div style={{ position: "relative", maxWidth: "100%" }}>
+          <div ref={videoRef} className="meet-designer-section ap" style={{ position: "relative", zIndex: 1 }}>
+            <p className="ac stag" style={{textAlign:"center", display:"block"}}>Meet the Designer</p>
+            <p className="ac bt" style={{ fontSize: ".9rem", marginBottom: "24px", textAlign: "center" }}>See how curiosity evolved into a scalable UX/UI career.</p>
+            <div className="ac" style={{ position: "relative", maxWidth: "100%" }}>
               {/* Decorative corner accents */}
               <div style={{ position: "absolute", top: "-12px", left: "-12px", width: "28px", height: "28px", borderTop: "2px solid #FF3CAC", borderLeft: "2px solid #FF3CAC", zIndex: 2, pointerEvents: "none" }} />
               <div style={{ position: "absolute", top: "-12px", right: "-12px", width: "28px", height: "28px", borderTop: "2px solid #00D4FF", borderRight: "2px solid #00D4FF", zIndex: 2, pointerEvents: "none" }} />
@@ -290,127 +263,34 @@ I blend creativity, strategy, and <span className="highlight-blue">product think
       {/* SELECTED WORK */}
       <section className="section">
         <div className="container container-content">
-          <div 
-            style={{ 
-              display: "flex", 
-              justifyContent: "space-between", 
-              alignItems: "flex-end", 
-              marginBottom: "40px", 
-              flexWrap: "wrap", 
-              gap: "16px",
-              opacity: 0,
-              transform: "translateY(20px)",
-              transition: "opacity 0.6s ease-out, transform 0.6s ease-out"
-            }}
-            ref={(el) => {
-              if (el) {
-                const observer = new IntersectionObserver(
-                  (entries) => {
-                    entries.forEach((entry) => {
-                      if (entry.isIntersecting) {
-                        const target = entry.target as HTMLElement;
-                        target.style.opacity = "1";
-                        target.style.transform = "translateY(0)";
-                      }
-                    });
-                  },
-                  { threshold: 0.1 }
-                );
-                observer.observe(el);
-              }
-            }}
-          >
-            <div><span className="stag">Selected Work</span><h2 className="sh1">Projects that<br /><span className="grad">made noise</span></h2></div>
-            <button 
-              className="bo" 
-              onClick={() => go("work")}
-              style={{ 
-                opacity: 0,
-                transform: "translateY(10px)",
-                transition: "opacity 0.4s ease-out 0.4s, transform 0.4s ease-out 0.4s"
-              }}
-            >
-              View All Projects
-            </button>
-          </div>
-          <div 
-            className="pgrid2" 
-            style={{ 
-              display: "grid", 
-              gridTemplateColumns: "1fr 1fr", 
-              gap: "20px",
-              opacity: 0,
-              transform: "translateY(30px)",
-              transition: "opacity 0.8s ease-out 0.5s, transform 0.8s ease-out 0.5s"
-            }}
-            ref={(el) => {
-              if (el) {
-                const observer = new IntersectionObserver(
-                  (entries) => {
-                    entries.forEach((entry) => {
-                      if (entry.isIntersecting) {
-                        const target = entry.target as HTMLElement;
-                        target.style.opacity = "1";
-                        target.style.transform = "translateY(0)";
-                        // Animate individual project cards
-                        const cards = (entry.target as HTMLElement).querySelectorAll('[data-project-card]');
-                        cards.forEach((card, index) => {
-                          setTimeout(() => {
-                            const cardElement = card as HTMLElement;
-                            cardElement.style.opacity = "1";
-                            cardElement.style.transform = "translateY(0)";
-                          }, index * 150);
-                        });
-                      }
-                    });
-                  },
-                  { threshold: 0.1 }
-                );
-                observer.observe(el);
-              }
-            }}
-          >
-            {DATA.projects.slice(0, 4).map((p, index) => (
-              <div
-                key={p.id}
-                data-project-card
-                style={{
-                  opacity: 0,
-                  transform: "translateY(20px)",
-                  transition: "opacity 0.6s ease-out, transform 0.6s ease-out"
-                }}
-              >
-                <PCard p={p} onClick={openProject} />
-              </div>
-            ))}
-          </div>
-          <div 
-            style={{ 
-              textAlign: "center", 
-              marginTop: "32px",
-              opacity: 0,
-              transform: "translateY(15px)",
-              transition: "opacity 0.6s ease-out 1s, transform 0.6s ease-out 1s"
-            }}
-            ref={(el) => {
-              if (el) {
-                const observer = new IntersectionObserver(
-                  (entries) => {
-                    entries.forEach((entry) => {
-                      if (entry.isIntersecting) {
-                        const target = entry.target as HTMLElement;
-                        target.style.opacity = "1";
-                        target.style.transform = "translateY(0)";
-                      }
-                    });
-                  },
-                  { threshold: 0.1 }
-                );
-                observer.observe(el);
-              }
-            }}
-          >
-            <button className="bp" onClick={() => go("work")}>View All Projects</button>
+          <div ref={selectedWorkRef} className="ap">
+            <div className="ac" style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-end",
+              marginBottom: "40px",
+              flexWrap: "wrap",
+              gap: "16px"
+            }}>
+              <div><span className="stag">Selected Work</span><h2 className="sh1">Projects that<br /><span className="grad">made noise</span></h2></div>
+              <button className="bo" onClick={() => go("work")}>
+                View All Projects
+              </button>
+            </div>
+            <div className="ac pgrid2" style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "20px"
+            }}>
+              {DATA.projects.slice(0, 4).map((p, index) => (
+                <div
+                  key={p.id}
+                  className="ac"
+                >
+                  <PCard p={p} onClick={openProject} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -419,25 +299,36 @@ I blend creativity, strategy, and <span className="highlight-blue">product think
       <BrandsMarquee />
 
       {/* TESTIMONIALS — moved up, right after Trusted By */}
-      <Testimonials showCTA={true} />
+      <div ref={testimonialsRef} className="ap">
+        <Testimonials showCTA={true} />
+      </div>
 
       {/* WHAT DRIVES ME */}
-      <DrivesMe maxWidth="1140px" />
+      <div ref={drivesMeRef} className="ap">
+        <DrivesMe maxWidth="1140px" />
+      </div>
 
       {/* BEYOND */}
-      <Beyond />
+      <div ref={beyondRef} className="ap">
+        <Beyond />
+      </div>
 
       {/* CTA BANNER */}
-      <section className="section">
-        <div className="container container-content">
-          <div className="cta-banner" style={{ background: "linear-gradient(135deg, rgba(255, 60, 172, 0.1), rgba(0, 212, 255, 0.07))", border: "1px solid rgba(255, 60, 172, 0.16)", padding: "44px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "22px", borderRadius: "12px" }}>
-            <div>
-              <h3 style={{ fontFamily: "Syne, sans-serif", fontSize: "clamp(1.3rem, 2.5vw, 1.9rem)", fontWeight: 800, marginBottom: "8px" }}>Ready to build<br /><span className="grad">something great?</span></h3>
-              <p className="bt" style={{ fontSize: "0.9rem" }}>Open to senior UX/UI and product design roles.</p>
+      <section ref={ctaRef} className="section ap">
+        <div className="container container-content" style={{ maxWidth: "1140px" }}>
+          <div className="cta-banner" style={{ background: "linear-gradient(135deg, rgba(255, 60, 172, 0.1), rgba(0, 212, 255, 0.07))", border: "1px solid rgba(255, 60, 172, 0.16)", padding: "56px 56px", display: "flex", justifyContent: "center", alignItems: "center", flexWrap: "wrap", gap: "56px", borderRadius: "12px" }}>
+            <div className="ac" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+              <ProfilePhoto size={200} />
             </div>
-            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-              <a href="https://wa.me/919725035222" target="_blank" rel="noreferrer" style={{ textDecoration: "none" }}><button className="bw"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg> Let's Talk</button></a>
-              <button className="bo">Contact →</button>
+            <div style={{ display: "flex", flexDirection: "column", gap: "16px", alignItems: "flex-start", textAlign: "left" }}>
+              <div className="ac">
+                <h3 style={{ fontFamily: "Syne, sans-serif", fontSize: "clamp(1.3rem, 2.5vw, 1.9rem)", fontWeight: 800, marginBottom: "8px" }}>Ready to build<br /><span className="grad">something great?</span></h3>
+                <p className="bt" style={{ fontSize: "0.9rem" }}>Open to senior UX/UI and product design roles.</p>
+              </div>
+              <div className="ac" style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
+                <a href={DATA.whatsapp} target="_blank" rel="noreferrer" style={{ textDecoration: "none" }}><button className="bw"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272-.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg> Let's Talk</button></a>
+                <button className="bo">Contact →</button>
+              </div>
             </div>
           </div>
         </div>

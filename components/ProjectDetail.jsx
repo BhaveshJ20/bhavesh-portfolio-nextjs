@@ -1,18 +1,44 @@
 import { useState, useRef, useEffect } from "react";
 import { useTheme } from "../context/ThemeContext.jsx";
-import useAnim from "../hooks/useAnim";
 import DATA from "../data/data.js";
 import { WA_SVG } from "../data/constants.jsx";
 import PCard from "../components/PCard.jsx";
 import FooterIcon from "./FooterIcon.jsx";
 import AnimatedNumber from "./AnimatedNumber.jsx";
 
+// Custom animation hook
+const useAnim = (ref) => {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('vis');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [ref]);
+};
+
 function ProjectDetail({ project, goBack, go, openProject }) {
   const { dark, T } = useTheme();
   const [imgIdx, setImgIdx] = useState(0);
   const [explorePage, setExplorePage] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-  const ref = useRef(null); useAnim(ref);
+  const ref = useRef(null);
+  useAnim(ref);
   
   useEffect(() => { 
     window.scrollTo({ top: 0, behavior: "smooth" }); 

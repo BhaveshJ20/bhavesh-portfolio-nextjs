@@ -37,9 +37,9 @@ const useAnim = (ref: React.RefObject<HTMLElement>) => {
 
 function About() {
   const { dark, T } = useTheme();
-  const heroRef = useRef<HTMLDivElement>(null); 
+  const heroRef = useRef<HTMLDivElement>(null);
   useAnim(heroRef);
-  const skillRef = useRef<HTMLDivElement>(null); 
+  const skillRef = useRef<HTMLDivElement>(null);
   useAnim(skillRef);
 
   return (

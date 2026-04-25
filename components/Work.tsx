@@ -38,7 +38,7 @@ function Work() {
   const cats = ["All", ...Array.from(new Set(DATA.projects.map(p => p.category))).filter(c => c !== "Branding")];
   const all = filter === "All" ? DATA.projects : DATA.projects.filter(p => p.category === filter);
   const list = all.slice(0, visible);
-  const ref = useRef<HTMLDivElement>(null); 
+  const ref = useRef<HTMLDivElement>(null);
   useAnim(ref);
 
   const openProject = (project: any) => {
