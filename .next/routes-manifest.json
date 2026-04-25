@@ -75,8 +75,8 @@
       "routeKeys": {
         "nxtPslug": "nxtPslug"
       },
-      "dataRouteRegex": "^/_next/data/CSNQi8n3JoFot83Gp\\-r3M/projects/([^/]+?)\\.json$",
-      "namedDataRouteRegex": "^/_next/data/CSNQi8n3JoFot83Gp\\-r3M/projects/(?<nxtPslug>[^/]+?)\\.json$"
+      "dataRouteRegex": "^/_next/data/jY9Njn11YAlgzxzcmElNc/projects/([^/]+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/jY9Njn11YAlgzxzcmElNc/projects/(?<nxtPslug>[^/]+?)\\.json$"
     }
   ],
   "rsc": {

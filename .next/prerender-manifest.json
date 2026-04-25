@@ -4,7 +4,7 @@
     "/projects/coricraft": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/projects/[slug]",
-      "dataRoute": "/_next/data/CSNQi8n3JoFot83Gp-r3M/projects/coricraft.json",
+      "dataRoute": "/_next/data/jY9Njn11YAlgzxzcmElNc/projects/coricraft.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -17,7 +17,7 @@
     "/projects/enterprise-dashboard": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/projects/[slug]",
-      "dataRoute": "/_next/data/CSNQi8n3JoFot83Gp-r3M/projects/enterprise-dashboard.json",
+      "dataRoute": "/_next/data/jY9Njn11YAlgzxzcmElNc/projects/enterprise-dashboard.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -30,7 +30,7 @@
     "/projects/healthcare-ai": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/projects/[slug]",
-      "dataRoute": "/_next/data/CSNQi8n3JoFot83Gp-r3M/projects/healthcare-ai.json",
+      "dataRoute": "/_next/data/jY9Njn11YAlgzxzcmElNc/projects/healthcare-ai.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -43,7 +43,7 @@
     "/projects/kia-south-africa": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/projects/[slug]",
-      "dataRoute": "/_next/data/CSNQi8n3JoFot83Gp-r3M/projects/kia-south-africa.json",
+      "dataRoute": "/_next/data/jY9Njn11YAlgzxzcmElNc/projects/kia-south-africa.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -56,7 +56,7 @@
     "/projects/saas-onboarding": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/projects/[slug]",
-      "dataRoute": "/_next/data/CSNQi8n3JoFot83Gp-r3M/projects/saas-onboarding.json",
+      "dataRoute": "/_next/data/jY9Njn11YAlgzxzcmElNc/projects/saas-onboarding.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -69,7 +69,7 @@
     "/projects/skaff-real-estate": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/projects/[slug]",
-      "dataRoute": "/_next/data/CSNQi8n3JoFot83Gp-r3M/projects/skaff-real-estate.json",
+      "dataRoute": "/_next/data/jY9Njn11YAlgzxzcmElNc/projects/skaff-real-estate.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -82,7 +82,7 @@
     "/projects/zodiac": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/projects/[slug]",
-      "dataRoute": "/_next/data/CSNQi8n3JoFot83Gp-r3M/projects/zodiac.json",
+      "dataRoute": "/_next/data/jY9Njn11YAlgzxzcmElNc/projects/zodiac.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -96,9 +96,9 @@
   "dynamicRoutes": {
     "/projects/[slug]": {
       "routeRegex": "^/projects/([^/]+?)(?:/)?$",
-      "dataRoute": "/_next/data/CSNQi8n3JoFot83Gp-r3M/projects/[slug].json",
+      "dataRoute": "/_next/data/jY9Njn11YAlgzxzcmElNc/projects/[slug].json",
       "fallback": false,
-      "dataRouteRegex": "^/_next/data/CSNQi8n3JoFot83Gp\\-r3M/projects/([^/]+?)\\.json$",
+      "dataRouteRegex": "^/_next/data/jY9Njn11YAlgzxzcmElNc/projects/([^/]+?)\\.json$",
       "allowHeader": [
         "host",
         "x-matched-path",
