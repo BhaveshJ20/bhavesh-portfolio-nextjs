@@ -21,7 +21,7 @@ const ProfileCard = () => {
       <div className="profile-card-header">
         <div className="profile-card-handle-badge">
           <div className="profile-card-status-dot"></div>
-          <div className="profile-card-status-text">@bhaveshjariwal99</div>
+          <div className="profile-card-status-text">Based in India</div>
         </div>
         {/* <a href="#" className="profile-card-external-btn">
           <Icon icon="lucide:external-link" width="16" height="16" />

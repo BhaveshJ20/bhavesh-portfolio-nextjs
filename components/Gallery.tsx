@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useRouter } from "next/router";
 import { useTheme } from "../context/ThemeContext";
 import DATA from "../data/data";
 import GlobalModal from "./GlobalModal";
@@ -31,6 +32,7 @@ const useAnim = (ref: React.RefObject<HTMLElement>) => {
 
 function Gallery() {
   const { dark, T } = useTheme();
+  const router = useRouter();
   const [modalItem, setModalItem] = useState<any>(null);
   const [tab, setTab] = useState("All");
   const [visibleCount, setVisibleCount] = useState(9);
@@ -84,7 +86,15 @@ function Gallery() {
               <div
                 key={item.id}
                 className="ac gitem"
-                onClick={() => setModalItem(item)}
+                onClick={() => {
+                  if (item.video) {
+                    setModalItem(item);
+                  } else if (item.slug) {
+                    router.push(`/playground/${item.tab.toLowerCase()}/${item.slug}`);
+                  } else {
+                    setModalItem(item);
+                  }
+                }}
                 style={{
                   cursor: "pointer",
                   background: "rgba(255,255,255,0.03)",

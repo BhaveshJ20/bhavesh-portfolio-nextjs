@@ -193,23 +193,202 @@ Key challenges included designing for high-information-density dashboards, build
       },
       {
         id: 7,
-        title: "Logo Collection",
+        title: "NALES — Brand Identity",
         tab: "Branding",
-        color: "#FF3CAC",
-        img: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=600&q=80",
+        color: "#7AB928",
+        img: "/images/branding/nales/Logo.png",
+        slug: "nales",
         caseStudy: {
-          heroBanner: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=1200&q=80",
-          fullDescription: "Logo design collection for multiple clients across various industries. Each logo follows a unique design process from sketch to final vector.",
+          heroBanner: "/images/branding/nales/Envelop/front.jpg",
+          fullDescription: "NALES — North American Laboratory Equipment Supplies & Services — is a scientific equipment supplier serving laboratories, research institutions, and industrial clients across North America. Despite operating in a precision-driven industry, the brand's visual identity didn't reflect the same level of rigor.",
           metrics: [
-            { value: "8 logos", label: "Logos" },
-            { value: "4 industries", label: "Industries" },
-            { value: "6 weeks", label: "Timeline" }
+            { value: "2 Weeks", label: "Timeline" },
+            { value: "Lead Brand Designer", label: "Role" },
+            { value: "Lab / Scientific", label: "Industry" }
           ],
-          tools: ["Illustrator", "Figma", "Pen & Paper"],
-          images: [
-            "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=800&q=80",
-            "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&q=80"
-          ]
+          tools: ["Figma", "Adobe CC", "Illustrator"],
+          role: "Lead Brand Designer",
+          timeline: "2 Weeks",
+          industry: "Laboratory / Scientific Equipment",
+          sections: {
+            overview: {
+              title: "The Brief.",
+              description: "NALES — North American Laboratory Equipment Supplies & Services — is a scientific equipment supplier serving laboratories, research institutions, and industrial clients across North America. Despite operating in a precision-driven industry, the brand's visual identity didn't reflect the same level of rigor. The engagement was a full brand identity system redesign — covering logo rationale, color system, typography hierarchy, print collateral, and digital-ready assets — all within a focused two-week sprint.",
+              coreBrief: "Create a cohesive, scalable brand identity that communicates precision, scientific authority, and innovation — consistently across every touchpoint from business cards to letterheads, envelopes to digital screens.",
+              specs: [
+                { key: "Client", value: "NALES" },
+                { key: "Industry", value: "Laboratory / Scientific Equipment" },
+                { key: "Scope", value: "Brand Identity · Print · Digital" },
+                { key: "Role", value: "Lead Brand Designer" },
+                { key: "Duration", value: "2 Weeks" },
+                { key: "Tools", value: "Figma · Adobe CC · Illustrator" },
+                { key: "Status", value: "✓ Delivered" }
+              ]
+            },
+            problem: {
+              title: "What Was Broken.",
+              description: "The existing brand materials existed as isolated artifacts — each designed in a vacuum, with no shared system, no hierarchy, and no scalable logic binding them together.",
+              problems: [
+                { num: "01", title: "No Visual Consistency", desc: "Business cards, letterheads, and envelopes used different interpretations of the logo, inconsistent spacing, and mismatched color applications — making the brand feel fragmented at every client touchpoint." },
+                { num: "02", title: "Weak Brand Recall", desc: "The existing visual language lacked a memorable identity hook. The logo concept was underutilised, and the scientific symbolism — the atom and flask — were not systematically applied to reinforce brand recognition." },
+                { num: "03", title: "Poor Communication Hierarchy", desc: "Typography across all materials had no defined hierarchy — headings, body text, and contact details competed for attention. Information was hard to scan, reducing professional credibility in client-facing documents." },
+                { num: "04", title: "Lack of System-Driven Design", desc: "There were no documented spacing rules, color ratios, or component guidelines. Every new material required redesigning from scratch — making the brand expensive to maintain and impossible to scale." }
+              ],
+              quote: "The brand needed to earn the same trust that NALES earns in the lab."
+            },
+            approach: {
+              title: "How I Approached It.",
+              description: "Before touching a single pixel, I defined the strategic lens through which every visual decision would be made. Three pillars guided the process.",
+              approaches: [
+                { icon: "🔬", label: "Research", title: "Industry Visual Audit", desc: "Studied how leading scientific brands — Thermo Fisher, Merck, Sigma-Aldrich — communicate authority through minimal, geometric, and structured visual languages. Identified a clear gap: most lab brands skew corporate grey. NALES needed to own a distinctive colour with scientific legitimacy." },
+                { icon: "📐", label: "Visual Direction", title: "Minimal. Structured. Geometric.", desc: "The visual direction committed to three principles: generous whitespace to signal precision, grid-based layouts to communicate structure, and geometric shapes derived from the atomic symbol to create a scientific visual language that felt native — not forced." },
+                { icon: "⚛️", label: "Concept", title: "Atomic Precision", desc: "Every atom in a molecule has a defined role. Every element in this brand system has a defined role. The concept 'Atomic Precision' became the creative north star — ensuring each design decision could be justified by function, not just aesthetics." }
+              ],
+              concept: {
+                title: "Atomic Precision — The Creative Concept",
+                desc: "Just as atomic structure governs the behaviour of matter with absolute precision, this brand system governs every visual element with the same rigour. The atom is not decorative here — it is the philosophical foundation: science demands precision, and so does the brand that serves it. Every spacing rule, every colour ratio, every typographic decision was derived from this single idea."
+              }
+            },
+            logo: {
+              title: "Symbol of Science.",
+              description: "The NALES logo is a dual-symbol system — two icons fused into a single, coherent mark that communicates both the scientific domain and the laboratory credibility of the business.",
+              anatomy: [
+                { label: "Symbol — Atom", title: "Orbiting electrons form the icon", desc: "The atomic symbol sits above the wordmark, anchoring the brand in scientific identity. The orbital paths represent precision, motion, and the constant pursuit of discovery. The central sphere has a subtle gradient — reflecting depth and technical sophistication — rather than a flat, generic treatment." },
+                { label: "Symbol — Flask", title: "The S becomes a laboratory flask", desc: "The final letter of NALESS is not just a letterform — it is a laboratory flask, making the wordmark itself a piece of conceptual design. This removes the need for a standalone icon in most applications; the logo is the icon. It communicates credibility in the lab without requiring explanation." },
+                { label: "Typography", title: "Bold, geometric, modern", desc: "The wordmark uses a custom geometric sans-serif with wide tracking and sharp terminals. The letterforms are confident — commanding space on a page the way scientific equipment commands attention in a lab. The tagline 'North American Laboratory Equipment Supplies & Services' is set in a compressed uppercase, subservient to the mark but never disappearing." },
+                { label: "Construction Logic", title: "Every angle is intentional", desc: "The logo was constructed on a precise grid. The atom's orbital radii, the flask's proportions, and the letterform widths share a consistent mathematical relationship. This is the 'Atomic Precision' concept made literal — a logo that couldn't accidentally be redesigned without breaking the underlying system." }
+              ]
+            },
+            colors: {
+              title: "The Palette.",
+              description: "Three colours. One dominant, one foundational, one supporting. The palette is deliberately restrained — because precision doesn't need noise.",
+              colors: [
+                { name: "Innovation Green", hex: "#7AB928", rgb: "122 · 185 · 40", cmyk: "34 · 0 · 78 · 27", usage: "Primary accent. Used for logo, headers, dividers, call-to-action elements. Never used as a background at full opacity — always dials back to 8–12% for fills." },
+                { name: "Precision Black", hex: "#1A1A1A", rgb: "26 · 26 · 26", cmyk: "0 · 0 · 0 · 90", usage: "Wordmark, body text, and structural elements. Slightly off-black for print accuracy — avoids the harshness of 100K without losing authority." },
+                { name: "Clinical White", hex: "#FFFFFF", rgb: "255 · 255 · 255", cmyk: "0 · 0 · 0 · 0", usage: "Primary background for all print materials. Signals cleanliness, laboratory sterility, and precision. Never broken with a grey or warm-tinted alternative." },
+                { name: "Tinted Green", hex: "Green @ 10–15% opacity", rgb: "For: fill zones, card backgrounds", cmyk: "Never: text, borders at full green", usage: "Used as a subtle fill for contact blocks, section dividers, and envelope panels. Maintains brand presence without overpowering the white space." }
+              ],
+              rules: [
+                { label: "Primary — Green", width: "25%", color: "#7AB928", desc: "25% of visual space. Accent and emphasis only. The brand's most distinctive asset — treat it like a highlight, not a background." },
+                { label: "Secondary — Black", width: "35%", color: "#1A1A1A", desc: "35% of visual space. All text, wordmark, and structural elements. The authority colour — never replaced by grey." },
+                { label: "Dominant — White", width: "40%", color: "#e8e8e8", desc: "40% of visual space. Space is the brand's loudest signal. White communicates precision, cleanliness, and scientific rigour — never fill it without purpose." }
+              ]
+            },
+            typography: {
+              title: "The Type System.",
+              description: "Two typefaces. One for authority, one for clarity. The hierarchy is strict — because clarity in a laboratory is non-negotiable.",
+              types: [
+                { tag: "Display · H1", spec: "Geometric Sans · Bold<br>48–96px · Tracking −0.02em", sample: "NALESS" },
+                { tag: "Heading · H2", spec: "Geometric Sans · Bold<br>28–40px · Tracking −0.01em", sample: "Precision in Every Detail" },
+                { tag: "Subheading · H3", spec: "Instrument Sans · SemiBold<br>18–22px · Tracking 0", sample: "North American Laboratory Equipment Supplies & Services" },
+                { tag: "Body · P", spec: "Instrument Sans · Regular<br>14–16px · Line height 1.78", sample: "We supply precision laboratory equipment and professional services to research institutions, industrial facilities, and scientific organizations across North America. Every product is selected for accuracy, durability, and compliance." },
+                { tag: "Caption / Label", spec: "DM Mono · Regular<br>10–12px · Tracking 0.15em", sample: "Product Code · LAB-EQ-2024 · Certified ISO 9001" }
+              ]
+            },
+            applications: {
+              title: "The System in Action.",
+              description: "Every application was designed to the same specification: the brand system, not the individual designer's instinct, makes the layout decisions.",
+              items: [
+                {
+                  sectionTitle: "01 — Letterhead",
+                  heading: "The Premium Letterhead System",
+                  rationale: "The letterhead is the most important client-facing document in the NALES print system. Two variants were developed: a full-colour version with the green contact block for primary correspondence, and a minimal variant for internal documents. Both share the same grid, the same margins, and the same typographic hierarchy — meaning they feel like siblings, not strangers. The atomic watermark in the body creates depth without distraction.",
+                  images: [
+                    { src: "/images/branding/nales/A4 letter/letter.jpg", caption: "Letterhead — Full Colour", size: "A4 · 210×297mm" },
+                    { src: "/images/branding/nales/A4 letter/letter1.jpg", caption: "Letterhead — Compact Version", size: "A4 · Body text layout" }
+                  ]
+                },
+                {
+                  sectionTitle: "02 — Business Cards",
+                  heading: "Front & Back — Dual-Panel System",
+                  rationale: "Business cards are the brand's handshake. The front is white-dominant — commanding and minimal, letting the logo breathe — with the full address and contact block in precise, mono-spaced type. The back inverts: a rich green background with the wordmark centred in white. The diagonal arrow motif on the contact block creates directional energy, reinforcing a brand that is always moving forward. No decorative elements that don't serve a structural purpose.",
+                  images: [
+                    { src: "/images/branding/nales/Buisness Card/front.fw.png", caption: "Business Card — Front", size: "85×55mm · Standard" },
+                    { src: "/images/branding/nales/Buisness Card/back.fw.png", caption: "Business Card — Back", size: "Green dominant · Logo reversed" }
+                  ]
+                },
+                {
+                  sectionTitle: "03 — Envelope",
+                  heading: "Envelope System — Front & Back",
+                  rationale: "The envelope design extends the letterhead system, not reinvents it. The front features a clean, professional sender block using the same type scale and logo placement as the letterhead. The back panel introduces the brand's strongest visual moment — the diagonal green ribbon with the atom icon centred in a white circle. This isn't decoration; it is a seal of scientific authority. When a client receives a NALES envelope, the back is the first thing they see when they open it.",
+                  images: [
+                    { src: "/images/branding/nales/Envelop/front.jpg", caption: "Envelope — Front", size: "DL · 220×110mm" },
+                    { src: "/images/branding/nales/Envelop/back.jpg", caption: "Envelope — Back · Atom seal", size: "Green ribbon closure system" }
+                  ]
+                },
+                {
+                  sectionTitle: "04 — Stamps & Seals",
+                  heading: "Official Stamp Variations",
+                  rationale: "Two stamp variants serve different official purposes. The rectangular stamp mirrors the business card proportions — compact, structured, with the wordmark legible at small scale. The circular seal uses a ring of text wrapping the NALES wordmark — communicating institutional authority. Both are designed to retain legibility and brand recognition when used in black ink only, satisfying the core rule of good stamp design: it must survive a single-colour stamp pad without losing identity.",
+                  images: [
+                    { src: "/images/branding/nales/Stamp/stamp1.jpg", caption: "Rectangular Stamp · Official correspondence", size: "" },
+                    { src: "/images/branding/nales/Stamp/stamp2.jpg", caption: "Circular Seal · Institutional authority", size: "" }
+                  ]
+                }
+              ]
+            },
+            system: {
+              title: "The Rules That Scale.",
+              description: "The deliverable wasn't just designed assets. It was a system with documented rules — so every future touchpoint, built by any designer, feels like it came from the same mind.",
+              cards: [
+                { num: "01", title: "8pt Spacing Grid", desc: "All margins, padding, and component gaps are multiples of 8px. This creates invisible but tangible rhythm across every layout — from the 64px page margin to the 8px gap between icon and label text.", pills: ["8px base", "16px inner", "32px section gap", "64px page margin"] },
+                { num: "02", title: "Component Architecture", desc: "Every print element — contact block, logo lockup, address field — is a reusable component. Swap content, not structure. The business card contact block is the same component used in the letterhead header and envelope sender field.", pills: ["Logo lockups ×4", "Contact block", "Section divider", "Address field"] },
+                { num: "03", title: "Colour Usage Protocol", desc: "Green is never used as a full-bleed background except in clearly defined zones (card back, envelope ribbon). All other uses are at 8–12% opacity or as a 2–3px accent line. This rule ensures green retains its impact — it only appears where it's supposed to mean something.", pills: ["Full green: flip side only", "Tinted: 8–12%", "Accent line: 2–3px"] },
+                { num: "04", title: "Icon Style — Line-Based", desc: "All supporting icons (phone, email, globe, address pin) use a consistent line-weight and geometric construction. No fills, no drop shadows, no decorative embellishments. Icons inform — they don't entertain.", pills: ["1.5px stroke weight", "Geometric construction", "No fills", "24×24px base"] }
+              ]
+            },
+            beforeAfter: {
+              title: "The Shift.",
+              description: "Same brand. Same industry. Entirely different perception. The comparison isn't about aesthetics — it's about the strategic difference between a brand that happens to exist and one that is built to work.",
+              before: {
+                label: "Before — Original Design",
+                image: "/images/branding/nales/Envelop/old-front.jpg",
+                points: [
+                  "Wave motif is decorative, not structural — creates visual noise without brand meaning",
+                  "Logo isolated in corner with no spatial relationship to other elements",
+                  "No grid logic — elements feel placed by eye, not by system",
+                  "Green used inconsistently across materials — different tones in different files",
+                  "Cannot be recreated without the original file — no documented system"
+                ]
+              },
+              after: {
+                label: "After — Brand System",
+                image: "/images/branding/nales/Envelop/front.jpg",
+                points: [
+                  "Every element has a structural purpose — geometry references the atomic identity system",
+                  "Logo placement follows an 8pt grid — consistent across all applications",
+                  "System-documented spacing — any designer can recreate any asset from the rules alone",
+                  "Single HEX value for green — locked across all files, print and digital",
+                  "Scales to new applications without breaking — a system, not a skin"
+                ]
+              }
+            },
+            impact: {
+              title: "What Changed.",
+              description: "A two-week sprint. A complete brand system. The outcomes are measurable — not in clicks or conversions, but in the metrics that matter for a B2B scientific brand: consistency, credibility, and scalability.",
+              metrics: [
+                { num: "6", label: "Print touchpoints unified under one system" },
+                { num: "1", label: "Single HEX value — green locked across all files" },
+                { num: "0", label: "Decorative elements without structural purpose" },
+                { num: "2w", label: "From brief to full deliverable — concept to production" }
+              ],
+              impacts: [
+                { title: "Improved Brand Consistency", desc: "Every material — from the stamp to the letterhead — now shares the same grid, the same spacing rules, and the same colour protocol. A new designer can produce a new touchpoint without guessing." },
+                { title: "Stronger Visual Identity", desc: "The dual-symbol logo system (atom + flask) created an immediately recognisable mark that works at any scale — from a 10mm stamp to a full A4 letterhead background watermark." },
+                { title: "Scalable Across Print & Digital", desc: "The system was built in vectors with documented rules, meaning digital applications — email headers, website components, presentation templates — can be derived from the same source of truth." },
+                { title: "Better Client Perception", desc: "In B2B scientific supply, trust is currency. A brand that looks as precise as its products signals to procurement managers and lab directors that NALES operates to the same standard inside as out." }
+              ]
+            },
+            takeaways: {
+              title: "What This Proves.",
+              description: "Three lessons from this project that apply to every brand engagement — regardless of industry or scale.",
+              takeaways: [
+                { icon: "🏗️", title: "Systems Over Visuals", desc: "A beautiful logo with no system around it is a one-time deliverable. A documented brand system is a multiplier — it makes every future touchpoint faster, cheaper, and more consistent to produce. The goal is always to design the rules, not just the output." },
+                { icon: "🧪", title: "Industry Psychology Drives Direction", desc: "NALES operates in an industry where precision is survival. A playful or expressive brand direction would have been wrong — not aesthetically, but strategically. Aligning the visual system with the industry's psychological expectations (precision, cleanliness, authority) makes the brand instantly credible to its audience." },
+                { icon: "📐", title: "Constraints Are Creative Fuel", desc: "Two weeks. Three colours. Two fonts. One concept. The tightest briefs produce the most focused work. Constraints force clarity — and clarity, in brand design, is always the right answer. Every element in the NALES system exists because it had to, not because it could." }
+              ]
+            }
+          }
         }
       },
       {
