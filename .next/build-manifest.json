@@ -1,79 +1,87 @@
 {
   "pages": {
     "/": [
-      "static/chunks/0el8rx_o83pu7.js",
-      "static/chunks/0t9smew2r5zb6.js",
-      "static/chunks/0987vc0o1lkbx.js",
-      "static/chunks/0z-uhy796.4xg.js",
-      "static/chunks/0l1pkvzrwjxv0.js",
+      "static/chunks/0qts8qqvmkyx_.js",
+      "static/chunks/0vck.k0y9upqc.js",
+      "static/chunks/0kcpd.pvyo5db.js",
       "static/chunks/0ofj94s91tv10.js",
+      "static/chunks/0l1pkvzrwjxv0.js",
+      "static/chunks/0z-uhy796.4xg.js",
       "static/chunks/0at8ppcxp20ii.css",
-      "static/chunks/turbopack-0l11kzwu-_z9c.js"
+      "static/chunks/turbopack-0a1z.rpr746~p.js"
     ],
     "/404": [
-      "static/chunks/04~-5.t5u6.b5.js",
-      "static/chunks/079s3w7eigz7u.js",
+      "static/chunks/0raw~yx2ks6vk.js",
       "static/chunks/0ofj94s91tv10.js",
       "static/chunks/0z-uhy796.4xg.js",
-      "static/chunks/turbopack-03jao4sqh64cx.js"
+      "static/chunks/turbopack-0qpsa9~g64-t3.js"
     ],
     "/_app": [
-      "static/chunks/08pgle1r5wt4h.js",
+      "static/chunks/105demsy7-32a.js",
       "static/chunks/0ofj94s91tv10.js",
       "static/chunks/0z-uhy796.4xg.js",
-      "static/chunks/0x-4fe1lnj4ch.css",
-      "static/chunks/turbopack-06y7qjle9y5ac.js"
+      "static/chunks/0x33nn2kq4508.css",
+      "static/chunks/turbopack-08-n_xicu_0wa.js"
     ],
     "/_error": [
-      "static/chunks/0p7ga19w-mztg.js",
+      "static/chunks/0p36td5sf4xmu.js",
       "static/chunks/0ofj94s91tv10.js",
       "static/chunks/0z-uhy796.4xg.js",
-      "static/chunks/turbopack-0hpq_ibu4gyot.js"
+      "static/chunks/turbopack-130inaryjuzv0.js"
     ],
     "/about": [
-      "static/chunks/16ad-mmkdgabq.js",
-      "static/chunks/0t9smew2r5zb6.js",
-      "static/chunks/0ofj94s91tv10.js",
+      "static/chunks/0du2pkn1uex53.js",
+      "static/chunks/0vck.k0y9upqc.js",
       "static/chunks/0z-uhy796.4xg.js",
+      "static/chunks/0ofj94s91tv10.js",
       "static/chunks/15cipsn2jb147.js",
       "static/chunks/0at8ppcxp20ii.css",
-      "static/chunks/turbopack-182epv-ecvz7~.js"
+      "static/chunks/turbopack-175w9vfl640-o.js"
     ],
     "/contact": [
-      "static/chunks/0-ajvsjed46o_.js",
-      "static/chunks/0t9smew2r5zb6.js",
+      "static/chunks/0rmg93s1a1vct.js",
+      "static/chunks/0vck.k0y9upqc.js",
       "static/chunks/0ofj94s91tv10.js",
       "static/chunks/0z-uhy796.4xg.js",
-      "static/chunks/turbopack-0ffa.0csm~-.2.js"
+      "static/chunks/turbopack-0m1r_i~bjlh1x.js"
     ],
     "/playground": [
-      "static/chunks/092940ak0rcta.js",
-      "static/chunks/0t9smew2r5zb6.js",
+      "static/chunks/0dgya1j8tbjjg.js",
+      "static/chunks/0vck.k0y9upqc.js",
       "static/chunks/0ofj94s91tv10.js",
       "static/chunks/0z-uhy796.4xg.js",
-      "static/chunks/turbopack-0hw2n63r3nafc.js"
+      "static/chunks/turbopack-05vjbm8ll3y4_.js"
+    ],
+    "/playground/[category]/[slug]": [
+      "static/chunks/033fdoi497vwa.js",
+      "static/chunks/06fvculay0qao.js",
+      "static/chunks/0ofj94s91tv10.js",
+      "static/chunks/0z-uhy796.4xg.js",
+      "static/chunks/0vck.k0y9upqc.js",
+      "static/chunks/068ks9dhdlftf.css",
+      "static/chunks/turbopack-0zqmyuts788x0.js"
     ],
     "/projects/[slug]": [
-      "static/chunks/04frjey8jg.v5.js",
-      "static/chunks/0t9smew2r5zb6.js",
+      "static/chunks/0d-k58wb8.s3_.js",
+      "static/chunks/0vck.k0y9upqc.js",
       "static/chunks/0ofj94s91tv10.js",
       "static/chunks/0z-uhy796.4xg.js",
-      "static/chunks/turbopack-0n76vzp-71a_b.js"
+      "static/chunks/turbopack-0e31o5ouut9ht.js"
     ],
     "/work": [
-      "static/chunks/0m6o.1_1okp53.js",
-      "static/chunks/0t9smew2r5zb6.js",
+      "static/chunks/0qd_.gc4wvi35.js",
+      "static/chunks/0vck.k0y9upqc.js",
       "static/chunks/0ofj94s91tv10.js",
       "static/chunks/0z-uhy796.4xg.js",
-      "static/chunks/turbopack-0xid79lvgp13s.js"
+      "static/chunks/turbopack-0s87up4swd51..js"
     ]
   },
   "devFiles": [],
   "polyfillFiles": [],
   "lowPriorityFiles": [
-    "static/sj_Q-yTLsZ-FEzrJ2lum7/_buildManifest.js",
-    "static/sj_Q-yTLsZ-FEzrJ2lum7/_ssgManifest.js",
-    "static/sj_Q-yTLsZ-FEzrJ2lum7/_clientMiddlewareManifest.js"
+    "static/pSxsfwpv0dl-baPOh-INo/_buildManifest.js",
+    "static/pSxsfwpv0dl-baPOh-INo/_ssgManifest.js",
+    "static/pSxsfwpv0dl-baPOh-INo/_clientMiddlewareManifest.js"
   ],
   "rootMainFiles": []
 }

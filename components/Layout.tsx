@@ -21,6 +21,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     const saved = localStorage.getItem('theme');
     if (saved !== null) {
       setDark(saved === 'dark');
+    } else {
+      // Check OS preference if no saved theme
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setDark(prefersDark);
     }
   }, []);
 

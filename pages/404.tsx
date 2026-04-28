@@ -598,14 +598,14 @@ export default function Custom404() {
         </div>
 
         {/* Navigation links */}
-        <div style={{ 
+        <div style={{
           display: 'flex',
           gap: '16px',
           justifyContent: 'center',
           flexWrap: 'wrap'
         }}>
-          <Link href="/work" style={{ 
-            color: T.muted, 
+          <a href="/work" style={{
+            color: T.muted,
             textDecoration: 'none',
             fontSize: '14px',
             fontFamily: "'DM Sans', sans-serif",
@@ -613,9 +613,9 @@ export default function Custom404() {
             position: 'relative'
           }}>
             Work
-          </Link>
-          <Link href="/about" style={{ 
-            color: T.muted, 
+          </a>
+          <a href="/about" style={{
+            color: T.muted,
             textDecoration: 'none',
             fontSize: '14px',
             fontFamily: "'DM Sans', sans-serif",
@@ -623,9 +623,9 @@ export default function Custom404() {
             position: 'relative'
           }}>
             About
-          </Link>
-          <Link href="/contact" style={{ 
-            color: T.muted, 
+          </a>
+          <a href="/contact" style={{
+            color: T.muted,
             textDecoration: 'none',
             fontSize: '14px',
             fontFamily: "'DM Sans', sans-serif",
@@ -633,7 +633,7 @@ export default function Custom404() {
             position: 'relative',
           }}>
             Contact
-          </Link>
+          </a>
         </div>
       </div>
 

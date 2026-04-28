@@ -4,7 +4,7 @@
     "/projects/coricraft": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/projects/[slug]",
-      "dataRoute": "/_next/data/sj_Q-yTLsZ-FEzrJ2lum7/projects/coricraft.json",
+      "dataRoute": "/_next/data/pSxsfwpv0dl-baPOh-INo/projects/coricraft.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -14,10 +14,10 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/projects/enterprise-dashboard": {
+    "/projects/enterprise·dashboard": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/projects/[slug]",
-      "dataRoute": "/_next/data/sj_Q-yTLsZ-FEzrJ2lum7/projects/enterprise-dashboard.json",
+      "dataRoute": "/_next/data/pSxsfwpv0dl-baPOh-INo/projects/enterprise·dashboard.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -27,10 +27,10 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/projects/healthcare-ai": {
+    "/projects/healthcare·ai": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/projects/[slug]",
-      "dataRoute": "/_next/data/sj_Q-yTLsZ-FEzrJ2lum7/projects/healthcare-ai.json",
+      "dataRoute": "/_next/data/pSxsfwpv0dl-baPOh-INo/projects/healthcare·ai.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -40,10 +40,10 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/projects/kia-south-africa": {
+    "/projects/kia·south·africa": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/projects/[slug]",
-      "dataRoute": "/_next/data/sj_Q-yTLsZ-FEzrJ2lum7/projects/kia-south-africa.json",
+      "dataRoute": "/_next/data/pSxsfwpv0dl-baPOh-INo/projects/kia·south·africa.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -53,10 +53,10 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/projects/saas-onboarding": {
+    "/projects/saas·onboarding": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/projects/[slug]",
-      "dataRoute": "/_next/data/sj_Q-yTLsZ-FEzrJ2lum7/projects/saas-onboarding.json",
+      "dataRoute": "/_next/data/pSxsfwpv0dl-baPOh-INo/projects/saas·onboarding.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -66,10 +66,10 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/projects/skaff-real-estate": {
+    "/projects/skaff·real·estate": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/projects/[slug]",
-      "dataRoute": "/_next/data/sj_Q-yTLsZ-FEzrJ2lum7/projects/skaff-real-estate.json",
+      "dataRoute": "/_next/data/pSxsfwpv0dl-baPOh-INo/projects/skaff·real·estate.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -82,7 +82,7 @@
     "/projects/zodiac": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/projects/[slug]",
-      "dataRoute": "/_next/data/sj_Q-yTLsZ-FEzrJ2lum7/projects/zodiac.json",
+      "dataRoute": "/_next/data/pSxsfwpv0dl-baPOh-INo/projects/zodiac.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -96,9 +96,9 @@
   "dynamicRoutes": {
     "/projects/[slug]": {
       "routeRegex": "^/projects/([^/]+?)(?:/)?$",
-      "dataRoute": "/_next/data/sj_Q-yTLsZ-FEzrJ2lum7/projects/[slug].json",
+      "dataRoute": "/_next/data/pSxsfwpv0dl-baPOh-INo/projects/[slug].json",
       "fallback": false,
-      "dataRouteRegex": "^/_next/data/sj_Q\\-yTLsZ\\-FEzrJ2lum7/projects/([^/]+?)\\.json$",
+      "dataRouteRegex": "^/_next/data/pSxsfwpv0dl\\-baPOh\\-INo/projects/([^/]+?)\\.json$",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -111,8 +111,8 @@
   },
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "9ee6b5137978f19a33094021097496bf",
-    "previewModeSigningKey": "41c20dfae7708a3bff62120e8e2b253f532272ba7c68b59f109b950e916c7ce1",
-    "previewModeEncryptionKey": "8f94baf73b1b551ec7a1cc1371481118d9af895e111c4940ad4d64d7850512f4"
+    "previewModeId": "20dcf34fbef965392e1dc7aef36232a0",
+    "previewModeSigningKey": "abb49396405601a0635009b3001484156b219302e65e1784c9b264666264f1d1",
+    "previewModeEncryptionKey": "80c3ce48399e18953dbe7c486be12145f9c4a472fd2dea894a3c28a420899475"
   }
 }
